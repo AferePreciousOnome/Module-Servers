@@ -2,7 +2,7 @@
 // This is where your node app starts
 
 //load the 'express' module which makes writing webservers easy
-import express from "express";
+import express, { response } from "express";
 //load the quotes JSON
 import quotes from "./quotes.json" assert { type: "json" };
 
@@ -16,6 +16,13 @@ app.get("/", (request, response) => {
 });
 
 //START OF YOUR CODE...
+app.get("/quotes", (request, response) => {
+  response.send(quotes);
+});
+app.get("/quotes/random", (request, response) => {
+  const randomQuotes = pickFromArray(quotes);
+  response.send(randomQuotes);
+});
 
 //...END OF YOUR CODE
 
