@@ -23,6 +23,7 @@ app.get("/quotes/random", (request, response) => {
   const randomQuotes = pickFromArray(quotes);
   response.send(randomQuotes);
 });
+
 app.get("/quotes/search", (request, response) => {
   const searchTerm = request.query.term ? request.query.term.toLowerCase() : "";
 
